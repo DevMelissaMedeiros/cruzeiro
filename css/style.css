@@ -81,7 +81,7 @@ footer {
 /* 🧱 Hero Section */
 .hero {
   grid-column: span 12;
-  background-image: url('/img/hero.png');
+  background-image: url('/img/logosite.png');
   background-size: cover;
   background-position: center;
   height: 400px;
