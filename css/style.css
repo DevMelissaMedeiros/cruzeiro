@@ -1,19 +1,94 @@
-:root{--bg:#f7f9fb;--card:#fff;--accent:#0b5cff;--muted:#6b7280}
-*{box-sizing:border-box}html,body{height:100%}body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:0;background:var(--bg);color:#111}
-.container{max-width:980px;margin:20px auto;padding:20px;background:var(--card);border-radius:10px;box-shadow:0 8px 24px rgba(2,6,23,.06)}
-.site-header{background:linear-gradient(90deg,#fff,#fbfdff);border-bottom:1px solid #eef2f7}
-.logo{height:48px}
-.nav{list-style:none;padding:0;margin:0;display:flex;gap:12px}
-.nav a{display:inline-block;padding:10px 6px;text-decoration:none;color:inherit}
-.hero img{max-width:100%;height:auto;border-radius:8px}
-.kpis{display:flex;gap:20px;padding:0;list-style:none}
-.kpis li{background:#f1f5f9;padding:12px;border-radius:8px;text-align:center}
-label{display:block;margin:8px 0;font-size:0.95rem}
-input,select,textarea{width:100%;padding:10px;border:1px solid #e6eef8;border-radius:8px}
-.actions{display:flex;gap:8px;margin-top:12px}
-button{background:var(--accent);color:#fff;padding:10px 12px;border-radius:8px;border:none;cursor:pointer}
-button[type=reset]{background:#9ca3af}
-.site-footer{margin-top:20px;padding:16px;text-align:center;color:var(--muted)}
-.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
-.skip-link:focus{position:static;width:auto;height:auto;padding:8px;background:#000;color:#fff;z-index:1000}
-@media (max-width:720px){.kpis{flex-direction:column}}
+/* Importa o design system e componentes */
+@import url('variables.css');
+@import url('components.css');
+
+/* 🌍 Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-900);
+  line-height: 1.6;
+}
+
+/* 🧭 Container principal com GRID (12 colunas) */
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-3);
+  padding: var(--space-4);
+}
+
+/* 📱 Responsividade com 5 breakpoints */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 400px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 🧱 Seções e títulos */
+section {
+  grid-column: span 12;
+  padding: var(--space-4) 0;
+}
+h1, h2, h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+h1 {
+  font-size: var(--font-size-xl);
+}
+h2 {
+  font-size: var(--font-size-lg);
+}
+h3 {
+  font-size: var(--font-size-md);
+}
+
+/* 📦 Rodapé */
+footer {
+  text-align: center;
+  padding: var(--space-3);
+  background-color: var(--color-neutral-900);
+  color: white;
+  font-size: var(--font-size-sm);
+}
+
+/* 🧱 Hero Section */
+.hero {
+  grid-column: span 12;
+  background-image: url('/img/hero.png');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  font-size: var(--font-size-xl);
+}
