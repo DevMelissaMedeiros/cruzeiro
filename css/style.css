@@ -2,7 +2,7 @@
 @import url('variables.css');
 @import url('components.css');
 
-/* 🌍 Reset e base */
+/*  Reset e base */
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@ body {
   line-height: 1.6;
 }
 
-/* 🧭 Container principal com GRID (12 colunas) */
+/*  Container principal com GRID (12 colunas) */
 .container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -23,7 +23,7 @@ body {
   padding: var(--space-4);
 }
 
-/* 📱 Responsividade com 5 breakpoints */
+/*  Responsividade com 5 breakpoints */
 @media (max-width: 1200px) {
   .container {
     grid-template-columns: repeat(8, 1fr);
@@ -50,7 +50,7 @@ body {
   }
 }
 
-/* 🧱 Seções e títulos */
+/*  Seções e títulos */
 section {
   grid-column: span 12;
   padding: var(--space-4) 0;
@@ -69,7 +69,7 @@ h3 {
   font-size: var(--font-size-md);
 }
 
-/* 📦 Rodapé */
+/*  Rodapé */
 footer {
   text-align: center;
   padding: var(--space-3);
@@ -78,7 +78,7 @@ footer {
   font-size: var(--font-size-sm);
 }
 
-/* 🧱 Hero Section */
+/*  Hero Section */
 .hero {
   grid-column: span 12;
   background-image: url('/img/logosite.png');

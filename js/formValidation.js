@@ -1,42 +1,20 @@
-const form = document.querySelector('form');
+export function setupValidation() {
+    const form = document.getElementById("cadForm");
+    if (!form) return;
 
-if (form) {
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const nome = form.querySelector('input[name="nome"]');
-    const email = form.querySelector('input[name="email"]');
-    const tipo = form.querySelector('select[name="tipoCadastro"]');
-    const mensagem = form.querySelector('textarea');
+    form.onsubmit = e => {
+        e.preventDefault();
 
-    let valid = true;
-    let erros = [];
+        const nome = document.getElementById("nome").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const msg = document.getElementById("msg");
 
-    if (nome.value.trim() === '') {
-      valid = false;
-      erros.push('Por favor, preencha o nome.');
-    }
+        if (nome === "" || email === "" || !email.includes("@")) {
+            msg.innerText = "Dados inválidos. Preencha corretamente.";
+            return;
+        }
 
-    if (!email.value.includes('@')) {
-      valid = false;
-      erros.push('Digite um e-mail válido.');
-    }
-
-    if (tipo && tipo.value === '') {
-      valid = false;
-      erros.push('Selecione o tipo de cadastro.');
-    }
-
-    if (mensagem && mensagem.value.trim() === '') {
-      valid = false;
-      erros.push('Escreva uma mensagem.');
-    }
-
-    if (!valid) {
-      alert(erros.join('\n'));
-    } else {
-      alert('Cadastro enviado com sucesso!');
-      salvarDadosLocal(nome.value, email.value, tipo.value, mensagem.value);
-      form.reset();
-    }
-  });
+        msg.innerText = "Cadastro enviado com sucesso!";
+        localStorage.setItem("cadastro", JSON.stringify({ nome, email }));
+    };
 }

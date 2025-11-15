@@ -8,7 +8,7 @@ function salvarDadosLocal(nome, email, tipo, mensagem) {
     data: new Date().toLocaleString()
   };
 
-  // Recupera dados antigos (se existirem)
+  // Recupera dados antigos
   let registros = JSON.parse(localStorage.getItem('cadastros')) || [];
 
   // Adiciona novo
