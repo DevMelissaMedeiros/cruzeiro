@@ -1,135 +1,108 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cadastro — ONG do Amor</title>
-<meta name="description" content="Cadastro de voluntários e doadores. - ONG do Amor">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cadastro – ONG do Amor</title>
+  <img src="img/logosite.png" alt="Logo Da ONG"
+  <meta name="description" content="Cadastro de voluntários e doadores. - ONG do Amor">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<a class="skip-link" href="#main">Ir para o conteúdo principal</a>
-<header class="site-header">
-<div class="container">
-<img src="img/logosite.png" alt="Logo ONG do Amor" class="logo">
-<nav aria-label="Navegação principal">
-<ul class="nav">
-<li><a href="index.html">Início</a></li>
-<li><a href="projetos.html">Projetos</a></li>
-<li><a href="cadastro.html">Cadastro</a></li>
-</ul>
-</nav>
-</div>
-</header>
+  <a class="skip-link" href="#main-content">Ir para o conteúdo principal</a>
 
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Página inicial - ONG do Amor">ONG do Amor</a>
 
-<main id="main" class="container">
-<h1>Cadastro</h1>
-<p>Escolha o tipo de cadastro: Voluntário ou Doador. Campos com * são obrigatórios.</p>
-<!-- Tipo de cadastro -->
-<fieldset>
-  <legend>Tipo de cadastro</legend>
-  <label>
-    <input type="radio" name="tipoCadastro" value="voluntario" required>
-    Voluntário
-  </label>
-  <label style="margin-left: 15px;">
-    <input type="radio" name="tipoCadastro" value="doador">
-    Doador
-  </label>
-</fieldset>
+      <button id="btn-hamburger" class="hamburger" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menu"></button>
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Menu principal">
+        <ul class="nav-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <main id="main-content" role="main">
+    <section class="container">
+      <h1>Cadastro de voluntários e doadores</h1>
+      <p>Preencha os dados abaixo para participar das nossas ações. Campos com <span aria-hidden="true">*</span> são obrigatórios.</p>
 
-<form id="voluntario-form" autocomplete="on" novalidate>
-<fieldset>
-<legend>Dados pessoais</legend>
+      <form id="form-cadastro" novalidate>
+        <fieldset>
+          <legend>Dados pessoais</legend>
 
+          <label for="nome">Nome completo <span aria-hidden="true">*</span></label>
+          <input id="nome" name="nome" type="text" required autocomplete="name" maxlength="100" />
 
-<label for="nome">Nome completo: *</label>
-<input id="nome" name="nome" type="text" required minlength="3">
+          <label for="email">E-mail <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" inputmode="email" required maxlength="120" />
 
+          <label for="cpf">CPF <span aria-hidden="true">*</span></label>
+          <input id="cpf" name="cpf" type="text"
+                 placeholder="000.000.000-00"
+                 inputmode="numeric"
+                 maxlength="14"
+                 pattern="^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$"
+                 title="000.000.000-00"
+                 required
+                 aria-describedby="cpf-error" />
 
-<label for="email">E‑mail: *</label>
-<input id="email" name="email" type="email" required>
+          <span id="cpf-error" class="field-error" aria-live="polite" hidden>CPF inválido</span>
 
+          <label for="telefone">Telefone <span aria-hidden="true">*</span></label>
+          <input id="telefone" name="telefone" type="tel"
+                 placeholder="(00) 90000-0000"
+                 inputmode="tel"
+                 maxlength="15"
+                 pattern="^\(?\d{2}\)?\s?(?:9?\d{4})-?\d{4}$"
+                 title="(12) 91234-5678 ou 12912345678"
+                 required
+                 aria-describedby="telefone-error" />
+          <span id="telefone-error" class="field-error" aria-live="polite" hidden>Telefone inválido</span>
 
-<label for="cpf">CPF: *</label>
-<input id="cpf" name="cpf" type="text" inputmode="numeric" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" required>
+          <label for="cep">CEP <span aria-hidden="true">*</span></label>
+          <input id="cep" name="cep" type="text"
+                 placeholder="00000-000"
+                 inputmode="numeric"
+                 maxlength="9"
+                 pattern="^\d{5}-?\d{3}$"
+                 title="12345-678 ou 12345678"
+                 required
+                 aria-describedby="cep-error" />
+          <span id="cep-error" class="field-error" aria-live="polite" hidden>CEP inválido</span>
 
+          <label for="endereco">Endereço</label>
+          <input id="endereco" name="endereco" type="text" maxlength="200" />
 
-<label for="telefone">Telefone: *</label>
-<input id="telefone" name="telefone" type="tel" inputmode="tel" placeholder="(00) 90000-0000" required>
+          <label for="tipo">Quero me cadastrar como:</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">-- selecione --</option>
+            <option value="voluntario">Voluntário</option>
+            <option value="doador">Doador</option>
+          </select>
 
+          <div style="margin-top:16px;">
+            <button class="btn primary" type="submit">Enviar cadastro</button>
+            <button class="btn" type="reset">Limpar</button>
+          </div>
+        </fieldset>
+      </form>
 
-<label for="nascimento">Data de nascimento:</label>
-<input id="nascimento" name="nascimento" type="date" max="2007-04-25">
+    </section>
+  </main>
 
-
-</fieldset>
-
-
-<fieldset>
-<legend>Endereço:</legend>
-<label for="cep">CEP: *</label>
-<input id="cep" name="cep" type="text" inputmode="numeric" placeholder="00000-000" required>
-
-
-<label for="endereco">Endereço:</label>
-<input id="endereco" name="endereco" type="text">
-
-
-<label for="cidade">Cidade:</label>
-<input id="cidade" name="cidade" type="text">
-
-
-<label for="estado">Estado:</label>
-<select id="estado" name="estado">
-<option value="">Selecione</option>
-<option value="AC">AC</option>
-<option value="AL">AL</option>
-<option value="AP">AP</option>
-<option value="AM">AM</option>
-<option value="BA">BA</option>
-<option value="CE">CE</option>
-<option value="ES">ES</option>
-<option value="GO">GO</option>
-<option value="MA">MA</option>
-<option value="MT">MT</option>
-<option value="MS">MS</option>
-<option value="MG">MG</option>
-<option value="PA">PA</option>
-<option value="PB">PB</option>
-<option value="PR">PR</option>
-<option value="PE">PE</option>
-<option value="PI">PI</option>
-<option value="RJ">RJ</option>
-<option value="RN">RN</option>
-<option value="RS">RS</option>
-<option value="RO">RO</option>
-<option value="RR">RR</option>
-<option value="SC">SC</option>
-<option value="SP">SP</option>
-<option value="SE">SE</option>
-<option value="TO">TO</option>
-
-</select>
-</fieldset>
-
-<div class="actions">
-<button type="submit">Enviar cadastro</button>
-<button type="reset">Limpar</button>
-</div>
-</form>
-
-
-</main>
-
-
-<footer class="site-footer">
-<div class="container">&copy; 2025 ONG do Amor</div>
-</footer>
-
-
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 ONG do Amor — Todos os direitos reservados</p>
+    </div>
+  </footer>
+  <div id="toast" class="toast" aria-live="polite" aria-atomic="true" hidden></div>
 <script src="js/main.js" defer></script>
 </body>
 </html>

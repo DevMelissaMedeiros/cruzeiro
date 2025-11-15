@@ -1,10 +1,8 @@
-// Seleciona o formulário
 const form = document.querySelector('form');
 
 if (form) {
   form.addEventListener('submit', function (event) {
-    event.preventDefault(); // impede envio se tiver erro
-
+    event.preventDefault();
     const nome = form.querySelector('input[name="nome"]');
     const email = form.querySelector('input[name="email"]');
     const tipo = form.querySelector('select[name="tipoCadastro"]');
