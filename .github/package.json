@@ -1,0 +1,18 @@
+{
+  "name":"projeto-a11y",
+  "version":"1.0.0",
+  "scripts":{
+    "build:js":"terser js/*.js -c -m -o dist/js/app.min.js",
+    "build:css":"postcss css/style.css --use cssnano -o dist/css/style.min.css",
+    "build:html":"html-minifier-terser index.html --collapse-whitespace --remove-comments --minify-css true --minify-js true -o dist/index.html",
+    "images:compress":"imagemin img/* --out-dir=dist/img",
+    "build":"npm run build:js && npm run build:css && npm run build:html && npm run images:compress"
+  },
+  "devDependencies":{
+    "terser":"^5.0.0",
+    "postcss-cli":"^9.0.0",
+    "cssnano":"^5.0.0",
+    "html-minifier-terser":"^6.0.0",
+    "imagemin-cli":"^7.0.0"
+  }
+}

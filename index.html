@@ -1,77 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/style.css">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ONG do Amor — Missão e Projetos</title>
-<meta name="description" content="ONG do Amor: projetos sociais, voluntariado e doações. Conheça nossa missão e participe.">
-<link rel="stylesheet" href="css/style.css">
+<title>Entrega Final - SPA Acessível</title>
+<link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-<a class="skip-link" href="#main">Ir para o conteúdo principal</a>
-<header class="site-header" role="banner">
-<div class="container">
-<img src="img/logosite.png" alt="Logo da ONG">
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+<header>
+<div class="header-controls">
+<button id="themeToggle" aria-pressed="false" aria-label="Alternar tema">Tema</button>
+<button id="contrastToggle" aria-pressed="false" aria-label="Alternar alto contraste">Alto Contraste</button>
+</div>
 <nav aria-label="Navegação principal">
-<ul class="nav">
-<li><a href="index.html">Início</a></li>
-<li><a href="projetos.html">Projetos</a></li>
-<li><a href="cadastro.html">Cadastro</a></li>
+    <ul>
+<li><button data-route="home">Home</button></li>
+<li><button data-route="cadastro">Cadastro</button></li>
+<li><button data-route="projetos">Projetos</button></li>
 </ul>
 </nav>
-</div>
 </header>
-
-
-<main id="main" class="container" role="main">
-<section class="hero" aria-labelledby="hero-title">
-<h1 id="hero-title">Transformando vidas através da ação comunitária!</h1>
-<p>Conheça nossos projetos! Participe como voluntário ou apoie com uma doação.</p>
-<img src="img/voluntariostrabalhando.png" alt="Voluntários trabalhando" width="600" height="400">
-</section>
-
-
-<section aria-labelledby="about-title" class="about">
-<h2 id="about-title">Quem somos?</h2>
-<p>Somos a ONG do Amor, atuando desde 2010 em projetos de educação, saúde e inclusão social. Nossa missão é criar oportunidades para comunidades vulneráveis.</p>
-<dl>
-<dt>Missão:</dt>
-<dd>Promover dignidade por meio da educação e inclusão.</dd>
-<dt>Visão:</dt>
-<dd>Ser referência em projetos locais sustentáveis.</dd>
-</dl>
-</section>
-
-
-<section aria-labelledby="impact-title" class="impact">
-<h2 id="impact-title">Nossos números:</h2>
-<ul class="kpis">
-<li><strong>+ 120</strong><span> Projetos realizados.</span></li>
-<li><strong>+ 3.200</strong><span> Pessoas voluntárias.</span></li>
-<li><strong>R$ 1,2M</strong><span> Arrecadados em 2024.</span></li>
-</ul>
-</section>
+<main id="main" tabindex="-1" role="main">
+<div id="app" aria-live="polite"></div>
 </main>
-
-
-<footer role="contentinfo" class="site-footer">
-<div class="container">
-<p>ONG do Amor — Rua Da Felicidade, 123 — Cidade Feliz — (55) 1234-5678 — contato@ongdoamor.org</p>
-<nav aria-label="Redes sociais">
-<ul class="social">
-<li><a href="#" aria-label="Instagram">Instagram</a></li>
-<li><a href="#" aria-label="Facebook">Facebook</a></li>
-</ul>
-</nav>
-</div>
+<footer role="contentinfo">
+<p>Feito por Melissa</p>
 </footer>
-
-
-<script src="js/main.js" defer></script>
-
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
-    
